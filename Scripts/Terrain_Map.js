@@ -4,9 +4,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXl1c2hkYWQiLCJhIjoiY20xdGI4YTdhMDBvODJqcGJqa
 // Initialize Mapbox map
 const map = new mapboxgl.Map({
   container: 'map',
-  zoom: 18  ,
+  zoom: 11  ,
   center: [-9.310, 53.957],
-  pitch: 116,
+  pitch: 120,
   bearing: -177.2,
   style: 'mapbox://styles/mapbox/satellite-v9',
   antialias: true,
