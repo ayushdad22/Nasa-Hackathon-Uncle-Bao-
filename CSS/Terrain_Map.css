@@ -1,0 +1,9 @@
+.center-map {
+    position: fixed;
+    inset: 0px;
+    width: 12rem;
+    height: 15rem;
+     max-width: 100vw;
+    max-height: 100dvh;
+    margin: auto;
+}
