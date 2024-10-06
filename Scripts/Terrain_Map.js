@@ -87,7 +87,7 @@ const customLayer = {
 
    
     const loader = new THREE.GLTFLoader();
-    loader.load("/Nasa-Hackathon-Uncle-Bao-/plane.gltf", (gltf) => {
+    loader.load("../Pages/plane.gltf", (gltf) => {
       this.model = gltf.scene;
       const modelScaleFactor = 1000; 
       this.model.scale.set(
