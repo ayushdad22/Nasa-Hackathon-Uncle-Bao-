@@ -85,11 +85,11 @@ const customLayer = {
     directionalLight2.position.set(0, 70, 100).normalize();
     this.scene.add(directionalLight2);
 
-    // Add the 3D model to the three.js scene
+   
     const loader = new THREE.GLTFLoader();
-    loader.load("../plane.gltf", (gltf) => {
+    loader.load("plane.gltf", (gltf) => {
       this.model = gltf.scene;
-      const modelScaleFactor = 1000; // Adjust this to make the model larger or smaller
+      const modelScaleFactor = 1000; 
       this.model.scale.set(
         modelScaleFactor,
         modelScaleFactor,
