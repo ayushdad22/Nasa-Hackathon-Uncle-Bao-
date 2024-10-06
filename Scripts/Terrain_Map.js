@@ -13,7 +13,7 @@ const map = new mapboxgl.Map({
 });
 
 map.on('style.load', () => {
-  map.setFog({});
+  // map.setFog({}); // Optional: Adds atmospheric fog for depth
   map.addSource('mapbox-dem', {
     'type': 'raster-dem',
     'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
@@ -24,9 +24,10 @@ map.on('style.load', () => {
   map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
 });
 
+
 // model coordinates
 const modelOrigin = [-9.310, 53.95];
-const modelAltitude = 1000;
+const modelAltitude = 1500;
 const modelRotate = [Math.PI / 2, 0, 0];
 
 const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
@@ -53,7 +54,23 @@ const customLayer = {
   onAdd: function (map, gl) {
     this.camera = new THREE.Camera();
     this.scene = new THREE.Scene();
+    const skybox_loader = new THREE.CubeTextureLoader();
+    const skyboxImages = [
+      '/Night_Sky_Mayo_Resized_1024x1024.jpg', // Right
+      '/Night_Sky_Mayo_Resized_1024x1024.jpg', // Left
+      '/Night_Sky_Mayo_Resized_1024x1024.jpg', // Top
+      '/Night_Sky_Mayo_Resized_1024x1024.jpg', // Bottom
+      '/Night_Sky_Mayo_Resized_1024x1024.jpg', // Front
+      '/Night_Sky_Mayo_Resized_1024x1024.jpg'  // Back
+    ];
 
+    const skyboxTexture = skybox_loader.load(skyboxImages, () => {
+      console.log("Skybox loaded successfully.");
+    }, undefined, (err) => {
+      console.error("An error occurred loading the skybox", err);
+    });
+    this.scene.background = skyboxTexture;
+    console.log(this.scene.background );
     // create two three.js lights to illuminate the model
     const directionalLight = new THREE.DirectionalLight(0xffffff);
     directionalLight.position.set(0, 70, 100).normalize();
@@ -120,7 +137,58 @@ const customLayer = {
     this.map.triggerRepaint();
   }
 };
+document.getElementById('goToMayo').addEventListener('click', () => {
+  map.flyTo({
+      center: [-9.310, 53.957],
+      zoom: 11,
+      pitch: 120,
+      bearing: -177.2,
+      speed: 1.5,
+      curve: 1,
+      essential: true
+  });
+  const dublinCoordinates = [-9.310, 53.957]
 
+  const dublinAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+    dublinCoordinates,
+    modelAltitude  
+  );
+
+  modelTransform.translateX = dublinAsMercatorCoordinate.x;
+  modelTransform.translateY = dublinAsMercatorCoordinate.y;
+  modelTransform.translateZ = dublinAsMercatorCoordinate.z; 
+  camera.position.x =dublinAsMercatorCoordinate.x;
+  camera.position.y =dublinAsMercatorCoordinate.y - 0.001;
+  //camera.position.z =dublinAsMercatorCoordinate.z;
+});
+
+document.getElementById('goToDublin').addEventListener('click', () => {
+  map.flyTo({
+      center: [-6.2603, 53.3498], // Dublin coordinates
+      zoom: 11,
+      pitch: 120,
+      bearing: -177.2,
+      speed: 1.5,
+      curve: 1,
+      essential: true
+  });
+  const dublinCoordinates = [-6.2603, 53.3498];
+
+// Convert the geographic coordinates to Mercator coordinates
+const dublinAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+  dublinCoordinates,
+  modelAltitude  // Use the same altitude you want for the model
+);
+
+// Now, update the model transform's translateX, translateY, and translateZ
+modelTransform.translateX = dublinAsMercatorCoordinate.x;
+modelTransform.translateY = dublinAsMercatorCoordinate.y;
+modelTransform.translateZ = dublinAsMercatorCoordinate.z; 
+camera.position.x =dublinAsMercatorCoordinate.x;
+  camera.position.y =dublinAsMercatorCoordinate.y - 0.001;
+ // camera.position.z =dublinAsMercatorCoordinate.z;
+
+});
 map.on('style.load', () => {
   map.addLayer(customLayer);
 });
@@ -136,6 +204,7 @@ document.addEventListener('keydown', function (event) {
       camera.position.y += speed;
       modelTransform.rotateY = 0;
       modelTransform.translateY += speed;
+      
       break;
     case "a": // Move left
       camera.position.x += speed;
@@ -160,4 +229,4 @@ document.addEventListener('keydown', function (event) {
   map.setFreeCameraOptions(camera);
 });
 
-camera.position.z = modelTransform.translateZ ; 
+

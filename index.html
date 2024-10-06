@@ -3,65 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Community Mapping & Biodiversity</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/CSS/index.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Mapbox GL JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Community Mapping & Biodiversity</h1>
         <nav>
             <ul>
-                <li><a href=""><i class="fas fa-map-marked-alt"></i> Map</a></li>
-                <li><a href="#light-pollution"><i class="fas fa-lightbulb"></i> Light Pollution</a></li>
-                <li><a href="#animals"><i class="fas fa-paw"></i> Animals</a></li>
-                <li><a href="#water-pollution"><i class="fas fa-water"></i> Water Pollution</a></li>
+                <li><a href="/Pages/Terrain_Map.html"><i class="fas fa-map-marked-alt"></i> Map</a></li>
+                <li><a href="Pages/Light_Pollution.html"><i class="fas fa-lightbulb"></i> Light Pollution</a></li>
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="hero-image">
-      <div class="hero-text">
-          <h2>Connecting Communities with Nature</h2>
-          <p>Explore, Understand, Conserve</p>
-          <a href="#about" class="button">Learn More</a>
-      </div>
+        <div class="hero-text">
+            
+            <h2>Connecting Communities with Nature</h2>
+            <p>Explore, Understand, Conserve</p>
+            <a href="#about" class="button">Learn More</a>
+        </div>
     </div>
 
-    <section id="map">
-        <div id="mapid"></div>
+    <section id="map_stuff">
+        <div id="map"></div>
     </section>
-
-    <section id="light-pollution">
-        <h2>Light Pollution</h2>
-        <p>Explore how light pollution affects County Mayo and County Dublin.</p>
-        <a href="#" class="button">Learn More</a>
-    </section>
-
-    <section id="animals">
-        <h2>Animals</h2>
-        <p>Discover the rich biodiversity and native species of County Mayo and County Dublin.</p>
-        <a href="#" class="button">Discover More</a>
-    </section>
-
-    <section id="water-pollution">
-        <h2>Water Pollution</h2>
-        <p>Learn about water pollution levels and conservation efforts in the areas.</p>
-        <a href="#" class="button">Find Out More</a>
-    </section>
-
+    <div class="light-image">
+        <div class="hero-text">
+            
+            <h2>Mapping Light Pollution in Ireland</h2>
+            <p>Explore, Understand, Conserve</p>
+            <a href="/Pages/Light_Pollution.html" class="button">Learn More</a>
+        </div>
+    </div>
     <section id="about">
-        <h2>About</h2>
-        <p>Our project aims to raise awareness about environmental issues in our communities through mapping and data visualization.</p>
-    </section>
-
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                At <strong>Community Mapping & Biodiversity</strong>, we are a dedicated group of environmental enthusiasts<br>
+                from <strong>County Dublin</strong> and <strong>County Mayo</strong>, united by our passion for preserving the natural beauty<br>
+                of Ireland's night skies. Our mission is to raise awareness about the growing issue of<br>
+                <em>light pollution</em> and its impact on our environment and communities.
+            </p>
+            <p>
+                Light pollution not only dims the stars above but also disrupts ecosystems,<br>
+                affecting nocturnal wildlife and altering natural behaviors. In Ireland, with its rich heritage<br>
+                and breathtaking landscapes, preserving the integrity of our night skies is crucial<br>
+                for both ecological balance and cultural heritage.
+            </p>
+            <p>
+                We believe that by mapping light pollution levels across Ireland—starting with our own<br>
+                communities in Dublin and Mayo—we can inspire change and promote practices that reduce<br>
+                unnecessary artificial lighting. Through education, community engagement, and innovative<br>
+                mapping technologies, we aim to highlight the importance of darkness in our environment<br>
+                and advocate for sustainable solutions.
+            </p>
+            <p>
+                Join us in our journey to bring back the stars and protect the nocturnal wonders<br>
+                of our beautiful country, Yours Truly Ayush, Brian and Joseph.
+            </p>
+        </div>
+    </section>    
     <footer>
-        <p>&copy; 2023 Community Mapping & Biodiversity Project</p>
+        <p>&copy; 2024 Community Mapping & Biodiversity Project</p>
     </footer>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="script.js"></script>
+    <!-- Custom JS -->
+    <script src="/Scripts/Earth.js"></script>
 </body>
 </html>

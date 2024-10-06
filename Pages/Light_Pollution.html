@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Light Pollution over Ireland</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Mapbox GL JS -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="/CSS/Light_Pollution.css" rel="stylesheet">
-    <style>
-        body { margin: 0; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; }
-    </style>
 </head>
 <body>
     <header>
@@ -19,23 +22,36 @@
             <ul>
                 <li><a href=""><i class="fas fa-map-marked-alt"></i> Map</a></li>
                 <li><a href="#light-pollution"><i class="fas fa-lightbulb"></i> Light Pollution</a></li>
-                <li><a href="#animals"><i class="fas fa-paw"></i> Animals</a></li>
-                <li><a href="#water-pollution"><i class="fas fa-water"></i> Water Pollution</a></li>
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
             </ul>
         </nav>
     </header>
-    <div id="sidebar">
-        <h2>Light Pollution in Ireland</h2>
-        <p><strong>Legend:</strong></p>
-        <ul>
-            <li><span style="background-color: #00FF00; width: 20px; height: 20px; display: inline-block;"></span> Low pollution</li>
-            <li><span style="background-color: #FFA500; width: 20px; height: 20px; display: inline-block;"></span> Moderate pollution</li>
-            <li><span style="background-color: #FF4500; width: 20px; height: 20px; display: inline-block;"></span> High pollution</li>
-            <li><span style="background-color: #FF0000; width: 20px; height: 20px; display: inline-block;"></span> Very high pollution</li>
-        </ul>
+    <section id="intro">
+        <h2>Explore the Night Skies of Ireland</h2>
+        <p>Discover how light pollution affects our environment and what we can do to preserve our night skies.</p>
+        <a href="#map-section" class="button">View Map</a>
+    </section>
+    <section id="map-section">
+        <div id="map"></div>
+        <div id="sidebar">
+            <h2>Light Pollution Levels</h2>
+            <p><strong>Legend:</strong></p>
+            <ul>
+                <li><span class="legend-color" style="background-color: #00FF00;"></span> Low pollution</li>
+                <li><span class="legend-color" style="background-color: #FFA500;"></span> Moderate pollution</li>
+                <li><span class="legend-color" style="background-color: #FF4500;"></span> High pollution</li>
+                <li><span class="legend-color" style="background-color: #FF0000;"></span> Very high pollution</li>
+            </ul>
+        </div>
+        
+    </section>
+    <div style="width: 80%; margin: 0 auto;">
+        <canvas id="lightPollutionChart"></canvas>
     </div>
-    <div id="map"></div>
-    <script src = "/Scripts/Light_Pollution.js" sr></script>
+    <footer>
+        <p>&copy; 2024 Community Mapping & Biodiversity</p>
+    </footer>
+    <Script src = "/Scripts/Map_Light_Pollution.js"></Script>
+    <script src="/Scripts/Light_Pollution.js"></script>
 </body>
 </html>

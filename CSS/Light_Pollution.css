@@ -1,61 +1,155 @@
-.header {
-    background-color: #000000; 
-    color: #ffffff; 
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  header h1 {
-    text-align: center;
-    margin: 5;
-    font-size: 3em;
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 2px;
-  }
-  
-  nav {
-    background-color: #333333;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  nav li {
-    float: left;
-    width: 20%;
-  }
-  
-  nav a {
-    display: block;
-    color: #ffffff;
-    text-align: center;
-    padding: 14px 0;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-family: 'Roboto', sans-serif;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav a:hover {
-    background-color: #000000;
-  }
-  #map {
-    margin-top: 15%;
-    margin-left: 25%;
-    width: 50%;
-    height: 50%;
-  }
-  #sidebar {
-    margin-left: 1%;
-    width: 20%;  /* Sidebar takes 25% of the width */
-    background-color: #f8f9fa;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; /* Scroll if content is long */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #0D0D0D;
+  color: #FFFFFF;
 }
-h2 { margin-top: 0; }
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+header {
+  background-color: #000000;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  text-align: center;
+  margin: 2;
+  font-size: 3em;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+}
+
+nav {
+  background-color: #1A1A1A;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  font-size: 1.1em;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #FFD700;
+}
+
+#intro {
+  text-align: center;
+  padding: 190px 20px 100px;
+  background: url('Images/8k_earth_daymap.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
+#intro h2 {
+  font-size: 3em;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px #000000;
+}
+
+#intro p {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px #000000;
+}
+
+.button {
+  background-color: #FFD700;
+  color: #000000;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #FFC700;
+}
+
+/* Map Section */
+#map-section {
+  display: flex;
+  margin-top: -50px;
+}
+
+#map {
+  margin-left: 2%;
+  width: 75%;
+  height: calc(100vh - 80px);
+}
+
+#sidebar {
+  width: 25%;
+  background-color: #1A1A1A;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #000000;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+  }
+
+  nav li {
+      margin: 10px 0;
+  }
+
+  #map-section {
+      flex-direction: column;
+  }
+
+  #map {
+      width: 100%;
+      height: 50vh;
+  }
+
+  #sidebar {
+      width: 100%;
+      height: auto;
+  }
+}

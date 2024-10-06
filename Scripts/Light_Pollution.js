@@ -15,7 +15,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoid2FuZ2JydGNkIiwiYSI6ImNtMXc0bW9xbzBpOTUycXIzN
             'data': '/Ireland_Light_Pollution_GeoJSON.geojson'  // Replace with your hosted GeoJSON file URL
         });
 
-        // Add heatmap layer to visualize the light pollution intensity
+        
         map.addLayer({
             'id': 'light-pollution-heat',
             'type': 'heatmap',

@@ -11,10 +11,31 @@
 <!-- <link rel="stylesheet" href="/CSS/Terrain_Map.css"> -->
   <style>
     body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%;background-image: url("/NightSky.avif"); }
+    #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
   </style>
 </head>
 <body>
+  <div id="controls">
+    <button class="btn" id="goToMayo">Go to Mayo</button>
+    <button class="btn" id="goToDublin">Go to Dublin</button>
+</div>
   <div class = "center-map"id="map"></div>
 
   <script src = "/Scripts/Terrain_Map.js"></script>

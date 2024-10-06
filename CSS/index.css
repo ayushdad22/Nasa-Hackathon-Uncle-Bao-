@@ -1,153 +1,80 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #555555;
+  --background-color: #f0f0f0;
+  --text-color: #000000;
+  --light-text-color: #ffffff;
+  --button-bg-color: #888888;
+  --button-hover-bg-color: #555555;
+  --header-bg-color: #000000;
+  --nav-bg-color: #333333;
+  --hero-overlay-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Global Styles */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f0f0f0;
-}
-
-.header {
-  background-color: #000000; 
-  color: #ffffff; 
-  padding: 40px 20px;
-  text-align: center;
-}
-
-header h1 {
-  text-align: center;
-  margin: 5;
-  font-size: 3em;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 2px;
-}
-
-nav {
-  background-color: #333333;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-nav li {
-  float: left;
-  width: 20%;
-}
-
-nav a {
-  display: block;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 0;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-family: 'Roboto', sans-serif;
-  transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-  background-color: #000000;
-}
-
-.button {
-  display: inline-block;
-  background-color: #1e90ff; /* DodgerBlue */
-  color: #ffffff;
-  padding: 12px 24px;
-  margin: 20px 0;
-  text-align: center;
-  font-size: 1em;
-  text-decoration: none;
-  border-radius: 30px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover {
-  background-color: #3742fa; /* Stronger blue */
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(55, 66, 250, 0.3);
-}
-
-
-/* Section Styles */
-section {
-  padding: 60px 20px;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-section:nth-of-type(even) {
-  background-color: #f7f7f7;
-}
-
-section h2 {
-  font-size: 2.5em;
-  color: #000000;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 20px;
-}
-
-section p {
-  font-size: 1.2em;
-  line-height: 1.8em;
-  color: #555555;
-  max-width: 800px;
-  margin: 0 auto 30px;
-}
-
-/* Map Section */
-#mapid {
-  height: 500px;
-}
-
-/* Footer Styles */
-footer {
-  background-color: #000000;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
-}
-
-/* Media Queries for Responsiveness */
-@media screen and (max-width: 768px) {
-  nav li {
-      float: none;
-      width: 100%;
-  }
-
-  section {
-      padding: 40px 20px;
-  }
-
-  header h1 {
-      font-size: 2.5em;
-  }
-
-  section h2 {
-      font-size: 2em;
-  }
-
-  .button {
-      padding: 10px 20px;
-      font-size: 0.9em;
-  }
-}
-
-section:nth-of-type(even) {
-  background-color: #f7f7f7;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+/* Header Styles */
+header {
+  background-color: var(--header-bg-color);
+  color: var(--light-text-color);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 40;
+  font-size: 3em;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: var(--primary-color);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  flex: 1;
+}
+
+nav a {
+  display: block;
+  color: var(--light-text-color);
+  text-align: center;
+  padding: 14px 0;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: var(--nav-bg-color);
+}
+
 .hero-image {
-  background-image: url('/Images/Mayo_Sky.jpg');
+  background-image: url("/Images/8k_earth_nightmap.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
-  height: 500px; 
+  height: 500px;
+  /* filter: grayscale(100%); */
 }
 
 .hero-image::after {
@@ -157,11 +84,11 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  /* background-color: var(--hero-overlay-color); */
 }
 
 .hero-text {
-  color: #ffffff;
+  color: var(--light-text-color);
   text-align: center;
   position: relative;
   top: 50%;
@@ -181,8 +108,8 @@ html {
 }
 
 .hero-text .button {
-  background-color: #1e90ff;
-  color: #ffffff;
+  background-color: var(--button-bg-color);
+  color: var(--light-text-color);
   padding: 12px 24px;
   text-decoration: none;
   border-radius: 30px;
@@ -190,7 +117,109 @@ html {
 }
 
 .hero-text .button:hover {
-  background-color: #3742fa;
+  background-color: var(--button-hover-bg-color);
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(55, 66, 250, 0.3);
+  box-shadow: 0 5px 15px rgba(85, 85, 85, 0.3);
 }
+
+.light-image {
+  background-image: url("/Images/Light_Pollution.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 500px;
+  /* filter: grayscale(100%); */
+}
+
+.light-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: var(--hero-overlay-color); */
+}
+/* Section Styles */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section:nth-of-type(even) {
+  background-color: #f7f7f7;
+}
+
+section h2 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+section p {
+  font-size: 1.2em;
+  line-height: 1.8em;
+  color: var(--secondary-color);
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--button-bg-color);
+  color: var(--light-text-color);
+  padding: 12px 24px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 1em;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--button-hover-bg-color);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(85, 85, 85, 0.3);
+}
+
+/* Map Section */
+#map {
+  width: 100%;
+  height: 500px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--header-bg-color);
+  color: var(--light-text-color);
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  section h2 {
+    font-size: 2em;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}
+
