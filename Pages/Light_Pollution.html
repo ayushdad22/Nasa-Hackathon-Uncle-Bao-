@@ -6,13 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <link href="/CSS/Light_Pollution.css" rel="stylesheet">
     <style>
         body { margin: 0; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        #map { position: absolute; top: 0; bottom: 0; }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Community Mapping & Biodiversity</h1>
+        <nav>
+            <ul>
+                <li><a href=""><i class="fas fa-map-marked-alt"></i> Map</a></li>
+                <li><a href="#light-pollution"><i class="fas fa-lightbulb"></i> Light Pollution</a></li>
+                <li><a href="#animals"><i class="fas fa-paw"></i> Animals</a></li>
+                <li><a href="#water-pollution"><i class="fas fa-water"></i> Water Pollution</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="sidebar">
+        <h2>Light Pollution in Ireland</h2>
+        <p><strong>Legend:</strong></p>
+        <ul>
+            <li><span style="background-color: #00FF00; width: 20px; height: 20px; display: inline-block;"></span> Low pollution</li>
+            <li><span style="background-color: #FFA500; width: 20px; height: 20px; display: inline-block;"></span> Moderate pollution</li>
+            <li><span style="background-color: #FF4500; width: 20px; height: 20px; display: inline-block;"></span> High pollution</li>
+            <li><span style="background-color: #FF0000; width: 20px; height: 20px; display: inline-block;"></span> Very high pollution</li>
+        </ul>
+    </div>
     <div id="map"></div>
-    <script src = "/Scripts/LightPollution.js" sr></script>
+    <script src = "/Scripts/Light_Pollution.js" sr></script>
 </body>
 </html>

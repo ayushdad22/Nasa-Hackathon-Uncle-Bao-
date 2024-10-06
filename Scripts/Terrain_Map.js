@@ -1,4 +1,3 @@
-// Mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXl1c2hkYWQiLCJhIjoiY20xdGI4YTdhMDBvODJqcGJqaDV3bzQ1MCJ9.djla3giXDBGAh6Ked3QBeg';
 
 // Initialize Mapbox map
@@ -57,7 +56,7 @@ const customLayer = {
 
     // create two three.js lights to illuminate the model
     const directionalLight = new THREE.DirectionalLight(0xffffff);
-    directionalLight.position.set(0, -70, 100).normalize();
+    directionalLight.position.set(0, 70, 100).normalize();
     this.scene.add(directionalLight);
 
     const directionalLight2 = new THREE.DirectionalLight(0xffffff);
@@ -65,10 +64,13 @@ const customLayer = {
     this.scene.add(directionalLight2);
 
     // Add the 3D model to the three.js scene
-    const geometry = new THREE.BoxGeometry(1000, 1000, 1000);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    this.scene.add(cube);
+    const loader = new THREE.GLTFLoader();
+    loader.load('/plane.gltf', (gltf) => {
+      this.model = gltf.scene;
+      const modelScaleFactor = 1000;  // Adjust this to make the model larger or smaller
+      this.model.scale.set(modelScaleFactor, modelScaleFactor, modelScaleFactor);
+      this.scene.add(this.model);
+    });
     this.map = map;
 
     // Use the Mapbox GL JS map canvas for three.js
@@ -132,18 +134,22 @@ document.addEventListener('keydown', function (event) {
   switch (event.key) {
     case "w": // Move forward
       camera.position.y += speed;
+      modelTransform.rotateY = 0;
       modelTransform.translateY += speed;
       break;
     case "a": // Move left
       camera.position.x += speed;
+      modelTransform.rotateY = Math.PI / 2;
       modelTransform.translateX += speed;
       break;
     case "s": // Move backward
       camera.position.y -= speed;
+      modelTransform.rotateY = Math.PI;
       modelTransform.translateY -= speed;
       break;
     case "d": // Move right
       camera.position.x -= speed;
+      modelTransform.rotateY = - Math.PI/2;
       modelTransform.translateX -= speed;
       break;
   }
@@ -154,4 +160,4 @@ document.addEventListener('keydown', function (event) {
   map.setFreeCameraOptions(camera);
 });
 
-camera.position.z = modelTransform.translateZ ;
+camera.position.z = modelTransform.translateZ ; 
