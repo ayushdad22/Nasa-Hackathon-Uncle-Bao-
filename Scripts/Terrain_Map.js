@@ -56,12 +56,12 @@ const customLayer = {
     this.scene = new THREE.Scene();
     const skybox_loader = new THREE.CubeTextureLoader();
     const skyboxImages = [
-      "/Night_Sky_Mayo_Resized_1024x1024.jpg", // Right
-      "/Night_Sky_Mayo_Resized_1024x1024.jpg", // Left
-      "/Night_Sky_Mayo_Resized_1024x1024.jpg", // Top
-      "/Night_Sky_Mayo_Resized_1024x1024.jpg", // Bottom
-      "/Night_Sky_Mayo_Resized_1024x1024.jpg", // Front
-      "/Night_Sky_Mayo_Resized_1024x1024.jpg", // Back
+      "../Night_Sky_Mayo_Resized_1024x1024.jpg", // Right
+      "../Night_Sky_Mayo_Resized_1024x1024.jpg", // Left
+      "../Night_Sky_Mayo_Resized_1024x1024.jpg", // Top
+      "../Night_Sky_Mayo_Resized_1024x1024.jpg", // Bottom
+      "../Night_Sky_Mayo_Resized_1024x1024.jpg", // Front
+      "../Night_Sky_Mayo_Resized_1024x1024.jpg", // Back
     ];
 
     const skyboxTexture = skybox_loader.load(
@@ -87,7 +87,7 @@ const customLayer = {
 
     // Add the 3D model to the three.js scene
     const loader = new THREE.GLTFLoader();
-    loader.load("/plane.gltf", (gltf) => {
+    loader.load("../plane.gltf", (gltf) => {
       this.model = gltf.scene;
       const modelScaleFactor = 1000; // Adjust this to make the model larger or smaller
       this.model.scale.set(
@@ -183,10 +183,9 @@ document.getElementById("goToDublin").addEventListener("click", () => {
   });
   const dublinCoordinates = [-6.2603, 53.3498];
 
-  
   const dublinAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
     dublinCoordinates,
-    modelAltitude 
+    modelAltitude
   );
 
   // Now, update the model transform's translateX, translateY, and translateZ
@@ -212,7 +211,6 @@ document.addEventListener("keydown", function (event) {
       camera.position.y += speed;
       modelTransform.rotateY = 0;
       modelTransform.translateY += speed;
-
       break;
     case "a": // Move left
       camera.position.x += speed;
